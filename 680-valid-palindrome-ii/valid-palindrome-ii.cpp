@@ -1,28 +1,24 @@
 class Solution {
 public:
 
-    bool checkPlaindrome(string& s , int left, int right){
-        while(left < right){
-            if(s[left] != s[right]){
+    bool check(string &s, int l, int r){
+        while(l < r){
+            if(s[l] != s[r]){
                 return false;
             }
-            left++;
-            right--;
+            l++;
+            r--;
         }
         return true;
     }
     bool validPalindrome(string s) {
-        int left = 0;
-        int right = s.length()-1;
-
-        while(left < right){
-            if(s[left] == s[right]){
-                left++;
-                right--;
+        int l=0, r=s.length()-1;
+        while(l <= r){
+            if(s[l] != s[r]){
+                return check(s, l+1, r) || check(s,l, r-1);
             }
-            else {
-                return checkPlaindrome(s,left+1,right) || checkPlaindrome(s,left,right-1);
-            }
+            l++;
+            r--;
         }
         return true;
     }
