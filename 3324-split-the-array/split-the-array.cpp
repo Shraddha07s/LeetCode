@@ -3,7 +3,7 @@ public:
     bool isPossibleToSplit(vector<int>& nums) {
         unordered_map<int,int> count;
 
-        for(int i : nums){
+        for(auto i : nums){
             count[i]++;
         }
 
